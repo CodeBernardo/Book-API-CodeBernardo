@@ -1,7 +1,5 @@
 let id = 1;
 
-const generateId = () => {
-  return id++;
-};
+const generateId = (): number => id++;
 
 export { generateId };
