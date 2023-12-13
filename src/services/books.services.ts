@@ -14,7 +14,7 @@ class BookServices {
       createdAt: new Date(),
       updatedAt: new Date(),
     };
-
+    booksDatabase.push(newBook);
     return newBook;
   };
 
@@ -30,14 +30,14 @@ class BookServices {
       ...data,
       updatedAt: new Date(),
     };
-
+    
     return booksDatabase[idx];
   };
 
   static deleteBook = (index: string): void => {
-    const idx = Number(index)
+    const idx = Number(index);
     booksDatabase.splice(idx, 1);
   };
 }
 
-export { BookServices}
+export { BookServices };

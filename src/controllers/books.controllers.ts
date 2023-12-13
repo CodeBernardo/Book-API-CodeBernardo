@@ -21,12 +21,13 @@ class BookControllers {
   static updateBook = (req: Request, res: Response): Response => {
     const bookIndex = res.locals.bookIndex;
     BookServices.updateBook(bookIndex, req.body);
-    return res.status(202).json(booksDatabase[bookIndex]);
+    return res.status(200).json(booksDatabase[bookIndex]);
   };
 
-  static deleteBook = (req: Request, res: Response): void => {
+  static deleteBook = (req: Request, res: Response): Response => {
     const bookIndex = res.locals.bookIndex;
     BookServices.deleteBook(bookIndex);
+    return res.sendStatus(204)
   };
 }
 
