@@ -7,4 +7,7 @@ interface Book {
   updatedAt: Date;
 }
 
-export { Book };
+type CreateBookReq = Pick<Book, "id" | "name" | "pages" | "category">
+type UpdadeBookReq = Partial<CreateBookReq>
+
+export { Book, CreateBookReq, UpdadeBookReq };
