@@ -5,7 +5,7 @@ import { BookMiddlewares } from "../middlewares/validateBook.middleware";
 const booksRouter = Router();
 
 booksRouter.get("/", BookControllers.getBooks);
-booksRouter.use("/:id", BookMiddlewares.validateId)
+booksRouter.use("/:id", BookMiddlewares.validateId);
 
 booksRouter.post(
   "/",
@@ -13,10 +13,7 @@ booksRouter.post(
   BookControllers.createBook,
 );
 
-booksRouter.get(
-  "/:id",
-  BookControllers.retrieveBook,
-);
+booksRouter.get("/:id", BookControllers.retrieveBook);
 
 booksRouter.patch(
   "/:id",
@@ -24,9 +21,6 @@ booksRouter.patch(
   BookControllers.updateBook,
 );
 
-booksRouter.delete(
-  "/:id",
-  BookControllers.deleteBook,
-);
+booksRouter.delete("/:id", BookControllers.deleteBook);
 
 export { booksRouter };

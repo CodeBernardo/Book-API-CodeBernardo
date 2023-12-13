@@ -27,7 +27,7 @@ class BookControllers {
   static deleteBook = (req: Request, res: Response): Response => {
     const bookIndex = res.locals.bookIndex;
     BookServices.deleteBook(bookIndex);
-    return res.sendStatus(204)
+    return res.sendStatus(204);
   };
 }
 

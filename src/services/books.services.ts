@@ -30,7 +30,7 @@ class BookServices {
       ...data,
       updatedAt: new Date(),
     };
-    
+
     return booksDatabase[idx];
   };
 
