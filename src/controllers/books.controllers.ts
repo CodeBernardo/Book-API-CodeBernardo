@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { BookServices } from "../services/books.services";
 import { booksDatabase } from "../database/database";
+import { GetBookReq } from "../interfaces/book.interface";
 
 class BookControllers {
   static createBook = (req: Request, res: Response): Response => {

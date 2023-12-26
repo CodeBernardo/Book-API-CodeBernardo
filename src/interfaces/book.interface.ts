@@ -1,3 +1,5 @@
+import { AnyZodObject } from "zod";
+
 interface Book {
   id: number;
   name: string;
@@ -9,5 +11,12 @@ interface Book {
 
 type CreateBookReq = Pick<Book, "name" | "pages" | "category">;
 type UpdadeBookReq = Partial<CreateBookReq>;
+type GetBookReq = Pick<Book, "name">
 
-export { Book, CreateBookReq, UpdadeBookReq };
+interface RequestSchema {
+  params?: AnyZodObject;
+  body?: AnyZodObject;
+  query?: AnyZodObject;
+}
+
+export { Book, CreateBookReq, UpdadeBookReq, RequestSchema, GetBookReq };
