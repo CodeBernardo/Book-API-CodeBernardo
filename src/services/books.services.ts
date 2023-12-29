@@ -21,7 +21,7 @@ class BookServices {
   static getBooks = (searchData?: string): Book | Book[] => {
     if (searchData) {
       const bookFound = booksDatabase.filter((book) =>
-        book.name.toLocaleLowerCase().includes(searchData.toLocaleLowerCase()),
+        book.name.toLowerCase().includes(searchData.toLowerCase()),
       );
       if (bookFound) {
         return bookFound;
