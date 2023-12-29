@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import { BookServices } from "../services/books.services";
 import { booksDatabase } from "../database/database";
-import { GetBookReq } from "../interfaces/book.interface";
 
 class BookControllers {
   static createBook = (req: Request, res: Response): Response => {
@@ -10,7 +9,7 @@ class BookControllers {
   };
 
   static getBooks = (req: Request, res: Response): Response => {
-    const booksList = BookServices.getBooks();
+    const booksList = BookServices.getBooks(req.query.search as string);
     return res.status(200).json(booksList);
   };
 

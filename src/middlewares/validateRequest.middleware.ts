@@ -1,12 +1,11 @@
 import { Response, Request, NextFunction } from "express";
-import { AnyZodObject, ZodError } from "zod";
+import { ZodError } from "zod";
 import { RequestSchema } from "../interfaces/book.interface";
 
 class ValidateRequest {
   static exe = (schema: RequestSchema) => {
     return async (req: Request, res: Response, next: NextFunction) => {
       try {
-
         if (schema.params) {
           req.params = await schema.params?.parseAsync(req.params);
         }
@@ -24,7 +23,8 @@ class ValidateRequest {
         if (error instanceof ZodError) {
           return res.status(409).json(error);
         }
-      }90
+      }
+      90;
     };
   };
 }

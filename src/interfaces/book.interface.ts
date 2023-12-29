@@ -11,7 +11,6 @@ interface Book {
 
 type CreateBookReq = Pick<Book, "name" | "pages" | "category">;
 type UpdadeBookReq = Partial<CreateBookReq>;
-type GetBookReq = Pick<Book, "name">
 
 interface RequestSchema {
   params?: AnyZodObject;
@@ -19,4 +18,4 @@ interface RequestSchema {
   query?: AnyZodObject;
 }
 
-export { Book, CreateBookReq, UpdadeBookReq, RequestSchema, GetBookReq };
+export { Book, CreateBookReq, UpdadeBookReq, RequestSchema };

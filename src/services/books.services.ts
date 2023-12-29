@@ -3,7 +3,6 @@ import {
   Book,
   UpdadeBookReq,
   CreateBookReq,
-  GetBookReq,
 } from "../interfaces/book.interface";
 import { generateId } from "./utils";
 
@@ -19,12 +18,18 @@ class BookServices {
     return newBook;
   };
 
-  static getBooks = (searchData?: GetBookReq | undefined): Book | Book[] => {
-    if(searchData) {
-      const bookFound = booksDatabase.filter(book => book.name === searchData.name)
-      return bookFound
+  static getBooks = (searchData?: string): Book | Book[] => {
+    if (searchData) {
+      const bookFound = booksDatabase.filter((book) =>
+        book.name.toLocaleLowerCase().includes(searchData.toLocaleLowerCase()),
+      );
+      if (bookFound) {
+        return bookFound;
+      } else {
+        return booksDatabase;
+      }
     } else {
-      return booksDatabase
+      return booksDatabase;
     }
   };
 
