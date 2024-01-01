@@ -23,14 +23,9 @@ class BookServices {
       const bookFound = booksDatabase.filter((book) =>
         book.name.toLowerCase().includes(searchData.toLowerCase()),
       );
-      if (bookFound) {
-        return bookFound;
-      } else {
-        return booksDatabase;
-      }
-    } else {
-      return booksDatabase;
-    }
+      return bookFound
+    } 
+    return booksDatabase;
   };
 
   static retrieveBook = (index: string): Book => booksDatabase[Number(index)];

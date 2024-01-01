@@ -24,7 +24,7 @@ class ValidateRequest {
           return res.status(409).json(error);
         }
       }
-      90;
+      ;
     };
   };
 }
